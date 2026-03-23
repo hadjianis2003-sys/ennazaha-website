@@ -1,7 +1,6 @@
 'use client'
 
 import { Suspense, lazy, useState } from 'react'
-import type { Application } from '@splinetool/runtime'
 import styles from './SplineScene.module.css'
 
 // Lazy-load the heavy runtime (~500KB) — critical for performance
@@ -11,7 +10,7 @@ interface SplineSceneProps {
   /** Full Spline scene URL from the export panel */
   scene: string
   /** Optional callback once the scene is ready */
-  onLoad?: (app: Application) => void
+  onLoad?: (app: any) => void
   className?: string
 }
 
@@ -27,7 +26,7 @@ interface SplineSceneProps {
 export default function SplineScene({ scene, onLoad, className }: SplineSceneProps) {
   const [loaded, setLoaded] = useState(false)
 
-  const handleLoad = (app: Application) => {
+  const handleLoad = (app: any) => {
     setLoaded(true)
     onLoad?.(app)
   }
