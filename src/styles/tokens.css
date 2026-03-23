@@ -1,0 +1,143 @@
+/* ============================================================
+   ENNAZAHA — Design Token System
+   Single source of truth for all visual tokens.
+   Light Mode: Warm parchment & amber-gold
+   Dark Mode:  Deep navy & bright orange-gold
+   ============================================================ */
+
+:root {
+  /* Brand Palette */
+  --primary:            #B45309;
+  --primary-foreground: #FFFFFF;
+  --secondary:          #E4C090;
+  --secondary-foreground: #57534E;
+
+  /* Surface Colors */
+  --background:  #FDFBF7;
+  --foreground:  #4A3B33;
+  --card:        #F8F4EE;
+  --card-foreground: #4A3B33;
+  --muted:       #F1E9DA;
+  --muted-foreground: #78716C;
+  --popover:     #F8F4EE;
+  --popover-foreground: #4A3B33;
+  --sidebar:     #F1E9DA;
+  --sidebar-foreground: #4A3B33;
+  --sidebar-border:    #E4D9BC;
+  --sidebar-ring:      #B45309;
+  --sidebar-primary:   #B45309;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent:    #A16207;
+  --sidebar-accent-foreground: #FFFFFF;
+
+  /* Interactive States */
+  --accent:            #f2daba;
+  --accent-foreground: #57534E;
+  --border:            #E4D9BC;
+  --input:             #E4D9BC;
+  --ring:              #B45309;
+  --destructive:       #991B1B;
+  --destructive-foreground: #FFFFFF;
+
+  /* Shape & Shadow */
+  --radius:            0.3rem;
+  --shadow-color:      hsl(28 18% 25%);
+  --shadow-opacity:    0.18;
+  --shadow-blur:       3px;
+  --shadow-spread:     0px;
+  --shadow-offset-x:   0px;
+  --shadow-offset-y:   2px;
+  --shadow-standard:   var(--shadow-offset-x) var(--shadow-offset-y) var(--shadow-blur)
+                       var(--shadow-spread)
+                       hsl(from var(--shadow-color) h s l / var(--shadow-opacity));
+
+  /* Charts */
+  --chart-1: #B45309;
+  --chart-2: #78716C;
+  --chart-3: #A16207;
+  --chart-4: #78716C;
+  --chart-5: #CA8A04;
+
+  /* Typography */
+  --font-sans:  'Oxanium', sans-serif;
+  --font-serif: 'Merriweather', serif;
+  --font-mono:  'Fira Code', monospace;
+  --font-arabic: 'Cairo', 'Noto Kufi Arabic', sans-serif;
+
+  /* Glassmorphism — light */
+  --glass-bg:     rgba(248, 244, 238, 0.72);
+  --glass-border: rgba(228, 217, 188, 0.55);
+  --glass-blur:   18px;
+
+  /* Z-index scale */
+  --z-below:    -1;
+  --z-default:   1;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-float:    500;
+  --z-toast:    600;
+
+  /* Spacing scale */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  /* Transition */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-slow:   400ms ease;
+}
+
+/* ============================================================
+   Dark Mode Overrides
+   ============================================================ */
+.dark {
+  --primary:            #F97316;
+  --primary-foreground: #FFFFFF;
+  --secondary:          #57534E;
+  --secondary-foreground: #E7E5E4;
+
+  --background:  #1C1917;
+  --foreground:  #F5F5F4;
+  --card:        #292524;
+  --card-foreground: #F5F5F4;
+  --muted:       #292524;
+  --muted-foreground: #A8A29E;
+  --popover:     #292524;
+  --popover-foreground: #F5F5F4;
+  --sidebar:     #292524;
+  --sidebar-foreground: #F5F5F4;
+  --sidebar-border:    #44403C;
+  --sidebar-ring:      #F97316;
+  --sidebar-primary:   #F97316;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent:    #0EA5E9;
+  --sidebar-accent-foreground: #0C2A4D;
+
+  --accent:            #1e4252;
+  --accent-foreground: #E7E5E4;
+  --border:            #44403C;
+  --input:             #44403C;
+  --ring:              #F97316;
+  --destructive:       #DC2626;
+  --destructive-foreground: #FFFFFF;
+
+  --shadow-color:  hsl(0 0% 5%);
+
+  --chart-1: #F97316;
+  --chart-2: #0EA5E9;
+  --chart-3: #EAB308;
+  --chart-4: #A8A29E;
+  --chart-5: #78716C;
+
+  --glass-bg:     rgba(41, 37, 36, 0.78);
+  --glass-border: rgba(68, 64, 60, 0.5);
+}

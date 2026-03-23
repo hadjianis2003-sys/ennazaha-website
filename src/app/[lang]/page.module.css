@@ -1,0 +1,14 @@
+.featured {
+  padding-block: var(--space-24);
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+@media (max-width: 900px) { .projectGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 580px) { .projectGrid { grid-template-columns: 1fr; } }
+
+.allProjects { display: flex; justify-content: center; }

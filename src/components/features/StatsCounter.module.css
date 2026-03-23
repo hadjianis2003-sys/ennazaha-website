@@ -1,0 +1,36 @@
+.section {
+  background: linear-gradient(135deg, #0A1628 0%, #1a2d4a 100%);
+  padding-block: var(--space-24);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-8);
+}
+
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+}
+
+.number {
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #F4C06A;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+}
+
+[dir="rtl"] .card { font-family: var(--font-arabic); }

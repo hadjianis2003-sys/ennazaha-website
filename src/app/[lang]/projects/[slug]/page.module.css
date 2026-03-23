@@ -1,0 +1,97 @@
+.hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.galleryPlaceholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0A1628, #1a2d4a, #2a1a0e);
+  z-index: 0;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 22, 40, 0.9) 0%, rgba(10, 22, 40, 0.2) 100%);
+  z-index: 0;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  padding-block: var(--space-16) var(--space-8);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.statusBadge {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 3px var(--space-3);
+  border-radius: 99px;
+  width: fit-content;
+}
+
+.projectName {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.projectCity { color: rgba(255,255,255,0.7); font-size: 1.1rem; }
+
+.body {
+  padding-block: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.desc { color: var(--muted-foreground); line-height: 1.8; font-size: 1.05rem; max-width: 72ch; }
+
+.tableWrapper { overflow-x: auto; border-radius: 0.75rem; border: 1px solid var(--border); }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.table th {
+  background: var(--muted);
+  padding: var(--space-3) var(--space-4);
+  text-align: start;
+  font-weight: 700;
+  color: var(--foreground);
+  white-space: nowrap;
+}
+.table td {
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--border);
+  color: var(--foreground);
+}
+.reserved td { color: var(--muted-foreground); text-decoration: line-through; opacity: 0.7; }
+
+.mapWrapper { border-radius: 0.75rem; overflow: hidden; }
+
+.brochureRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: var(--space-4);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+.brochureRow p { font-weight: 600; color: var(--foreground); }
