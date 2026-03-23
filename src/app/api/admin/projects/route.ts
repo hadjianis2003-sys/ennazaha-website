@@ -15,7 +15,7 @@ export async function GET() {
 /** POST create a new project */
 export async function POST(req: NextRequest) {
   const body = await req.json()
-  const { apartment_types: aptTypes, ...projectData } = body
+  const { apartment_types: aptTypes, gallery_images: galleryImages, ...projectData } = body
 
   // Insert project
   const { data: project, error } = await supabaseAdmin
@@ -33,6 +33,17 @@ export async function POST(req: NextRequest) {
       .from('apartment_types')
       .insert(rows)
     if (aptErr) return NextResponse.json({ error: aptErr.message }, { status: 500 })
+  }
+
+  // Insert gallery images if provided
+  if (galleryImages && galleryImages.length > 0) {
+    const imgRows = galleryImages.map((url: string, i: number) => ({
+      project_id: project.id,
+      image_url: url,
+      sort_order: i,
+    }))
+    const { error: imgErr } = await supabaseAdmin.from('project_images').insert(imgRows)
+    if (imgErr) return NextResponse.json({ error: imgErr.message }, { status: 500 })
   }
 
   return NextResponse.json(project, { status: 201 })

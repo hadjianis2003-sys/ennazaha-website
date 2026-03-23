@@ -18,9 +18,9 @@ export async function GET(_req: NextRequest, { params }: { params: Promise<{ id:
 export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
   const body = await req.json()
-  const { apartment_types: aptTypes, project_images, ...projectData } = body
+  const { apartment_types: aptTypes, gallery_images: galleryImages, ...projectData } = body
 
-  // Update project
+  // Update project fields
   const { data: project, error } = await supabaseAdmin
     .from('projects')
     .update(projectData)
@@ -40,6 +40,20 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
       })
       const { error: aptErr } = await supabaseAdmin.from('apartment_types').insert(rows)
       if (aptErr) return NextResponse.json({ error: aptErr.message }, { status: 500 })
+    }
+  }
+
+  // Replace gallery images: delete all existing, insert new
+  if (galleryImages !== undefined) {
+    await supabaseAdmin.from('project_images').delete().eq('project_id', id)
+    if (galleryImages.length > 0) {
+      const imgRows = (galleryImages as string[]).map((url, i) => ({
+        project_id: id,
+        image_url: url,
+        sort_order: i,
+      }))
+      const { error: imgErr } = await supabaseAdmin.from('project_images').insert(imgRows)
+      if (imgErr) return NextResponse.json({ error: imgErr.message }, { status: 500 })
     }
   }
 

@@ -146,6 +146,7 @@ export default function ProjectEditor({ projectId }: { projectId?: string }) {
     const body = {
       ...form,
       apartment_types: apts.filter((a) => a.type_ar || a.type_fr),
+      gallery_images: galleryImages,  // ← sent to API, saved to project_images table
     }
 
     let res: Response
@@ -165,11 +166,6 @@ export default function ProjectEditor({ projectId }: { projectId?: string }) {
 
     setSaving(false)
     if (res.ok) {
-      // Save gallery images
-      if (!isNew && galleryImages.length > 0) {
-        // Delete existing images and re-insert
-        // (handled via the API or directly)
-      }
       setToast(isNew ? 'Project created!' : 'Project updated!')
       setTimeout(() => {
         setToast('')
