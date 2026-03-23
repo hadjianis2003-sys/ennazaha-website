@@ -8,6 +8,8 @@ import ProjectCard, { type ProjectData } from '@/components/features/ProjectCard
 import { getProjects, type Project } from '@/lib/projects'
 import styles from './page.module.css'
 
+export const revalidate = 60 // Refresh data every 60 seconds
+
 type Locale = 'ar' | 'fr'
 
 /** Map Supabase project → ProjectCard props */

@@ -9,6 +9,8 @@ import MortgageCalculator from '@/components/features/MortgageCalculator'
 import { getProjectBySlug, getProjectSlugs } from '@/lib/projects'
 import styles from './page.module.css'
 
+export const revalidate = 60 // Refresh data every 60 seconds
+
 type Locale = 'ar' | 'fr'
 const locales = ['ar', 'fr'] as const
 
