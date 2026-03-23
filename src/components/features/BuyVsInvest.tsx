@@ -50,7 +50,7 @@ export default function BuyVsInvest({ lang }: Props) {
   const base = `/${lang}`
 
   return (
-    <section className={styles.section}>
+    <section id="buy" className={styles.section}>
       <div className="container">
         <h2 className="section-title" style={{ textAlign: 'center' }}>{c.title}</h2>
         <p className="section-subtitle" style={{ textAlign: 'center', margin: '0 auto var(--space-12)' }}>{c.subtitle}</p>
@@ -63,18 +63,18 @@ export default function BuyVsInvest({ lang }: Props) {
             <ul className={styles.list}>
               {c.buyPoints.map((p, i) => <li key={i}>{p}</li>)}
             </ul>
-            <a href={`${base}/buy`} className="btn-outline">{c.buyCta}</a>
+            <a href={`${base}/projects`} className="btn-outline">{c.buyCta}</a>
           </div>
 
           {/* Invest card */}
-          <div className={`${styles.card} ${styles.invest}`}>
+          <div id="invest" className={`${styles.card} ${styles.invest}`}>
             <div className={styles.badge}>⭐ Recommandé</div>
             <div className={styles.icon}>📈</div>
             <h3 className={styles.cardTitle}>{c.investTitle}</h3>
             <ul className={styles.list}>
               {c.investPoints.map((p, i) => <li key={i}>{p}</li>)}
             </ul>
-            <a href={`${base}/invest`} className="btn-primary">{c.investCta}</a>
+            <a href={`${base}/#contact`} className="btn-primary">{c.investCta}</a>
           </div>
         </div>
       </div>

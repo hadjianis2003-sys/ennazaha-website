@@ -40,7 +40,7 @@ export default function Footer({ lang }: FooterProps) {
   const base = `/${lang}`
 
   return (
-    <footer className={styles.footer}>
+    <footer id="contact" className={styles.footer}>
       <div className={`container ${styles.grid}`}>
         {/* Brand */}
         <div>
@@ -58,10 +58,10 @@ export default function Footer({ lang }: FooterProps) {
           <p className={styles.colTitle}>{c.links}</p>
           <ul className={styles.navList}>
             <li><Link href={`${base}/projects`} className={styles.navLink}>{c.projects}</Link></li>
-            <li><Link href={`${base}/offers`} className={styles.navLink}>{c.offers}</Link></li>
-            <li><Link href={`${base}/buy`} className={styles.navLink}>{c.buy}</Link></li>
-            <li><Link href={`${base}/invest`} className={styles.navLink}>{c.invest}</Link></li>
-            <li><Link href={`${base}/blog`} className={styles.navLink}>{c.blog}</Link></li>
+            <li><Link href={`${base}/#offers`} className={styles.navLink}>{c.offers}</Link></li>
+            <li><Link href={`${base}/#buy`} className={styles.navLink}>{c.buy}</Link></li>
+            <li><Link href={`${base}/#invest`} className={styles.navLink}>{c.invest}</Link></li>
+            <li><Link href={`${base}/#blog`} className={styles.navLink}>{c.blog}</Link></li>
             <li><Link href={`${base}/faq`} className={styles.navLink}>{c.faq}</Link></li>
           </ul>
         </div>

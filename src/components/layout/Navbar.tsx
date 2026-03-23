@@ -9,11 +9,11 @@ import styles from './Navbar.module.css'
 const navLinks: { key: string; ar: string; fr: string; href: string }[] = [
   { key: 'home',     ar: 'الرئيسية',    fr: 'Accueil',    href: '/' },
   { key: 'projects', ar: 'المشاريع',   fr: 'Projets',    href: '/projects' },
-  { key: 'offers',   ar: 'العروض',     fr: 'Offres',     href: '/offers' },
-  { key: 'buy',      ar: 'كيف تشتري',  fr: 'Acheter',    href: '/buy' },
-  { key: 'invest',   ar: 'استثمر',     fr: 'Investir',   href: '/invest' },
-  { key: 'about',    ar: 'عنا',        fr: 'À propos',   href: '/about' },
-  { key: 'contact',  ar: 'اتصل بنا',   fr: 'Contact',    href: '/contact' },
+  { key: 'offers',   ar: 'العروض',     fr: 'Offres',     href: '/#offers' },
+  { key: 'buy',      ar: 'كيف تشتري',  fr: 'Acheter',    href: '/#buy' },
+  { key: 'invest',   ar: 'استثمر',     fr: 'Investir',   href: '/#invest' },
+  { key: 'about',    ar: 'عنا',        fr: 'À propos',   href: '/#about' },
+  { key: 'contact',  ar: 'اتصل بنا',   fr: 'Contact',    href: '/#contact' },
 ]
 
 interface NavbarProps {

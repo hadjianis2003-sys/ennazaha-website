@@ -61,12 +61,14 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         {/* Hero */}
         <Hero lang={locale} />
 
-        {/* Stats counter */}
-        <StatsCounter lang={locale} />
+        {/* Stats counter (About) */}
+        <div id="about">
+          <StatsCounter lang={locale} />
+        </div>
 
         {/* Featured projects */}
         {featured.length > 0 && (
-          <section className={styles.featured}>
+          <section id="offers" className={styles.featured}>
             <div className="container">
               <h2 className="section-title" style={{ textAlign: 'center' }}>{featuredTitle}</h2>
               <div className={styles.projectGrid}>
