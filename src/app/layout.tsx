@@ -1,5 +1,9 @@
 import type { Metadata } from 'next'
 import '../styles/globals.css'
+import { PostHogProvider } from './providers'
+import PostHogPageView from '../components/PostHogPageView'
+import PostHogCustomEvents from '../components/PostHogCustomEvents'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
   title: {
@@ -27,7 +31,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       </head>
       <body suppressHydrationWarning>
-        {children}
+        <PostHogProvider>
+          <Suspense fallback={null}>
+            <PostHogPageView />
+            <PostHogCustomEvents />
+          </Suspense>
+          {children}
+        </PostHogProvider>
       </body>
     </html>
   )

@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import styles from './Hero.module.css'
+import { useFeatureFlagVariantKey, usePostHog } from 'posthog-js/react'
 
 const SCENE_URL = 'https://prod.spline.design/LwWMFEGfksM2eE09/scene.splinecode'
 
@@ -33,11 +34,31 @@ const t = {
 export default function Hero({ lang }: HeroProps) {
   const c = t[lang as 'ar' | 'fr'] ?? t.ar
   const isAr = lang === 'ar'
+  const posthog = usePostHog()
+  
+  // A/B test logic
+  const variant = useFeatureFlagVariantKey('hero-copy-test')
+  
+  // Define variants
+  const cTest = {
+    ...c,
+    title: isAr ? 'منزل أحلامك\nأصبح حقيقة الآن' : 'La maison de vos\nrêves est réalité',
+    cta: isAr ? 'احجز شقتك اليوم' : 'Réservez aujourd\'hui',
+  }
+  
+  const displayContent = variant === 'test' ? cTest : c
+  
+  const handleCtaClick = () => {
+    posthog?.capture('hero_cta_clicked', {
+      variant: variant || 'control',
+      $feature_hero_copy_test: variant || 'control'
+    })
+  }
 
   return (
     <section
       className={styles.hero}
-      aria-label={c.title.replace(/\n/g, ' ')}
+      aria-label={displayContent.title.replace(/\n/g, ' ')}
     >
       {/* ── Full-screen 3D background ── hidden on mobile */}
       <div className={styles.sceneBackground} aria-hidden="true">
@@ -58,11 +79,11 @@ export default function Hero({ lang }: HeroProps) {
           style={isAr ? { marginLeft: 'auto', marginRight: 0 } : { marginLeft: 0 }}
         >
           {/* <span className={styles.tag}>{c.tag}</span> */}
-          <h1 className={styles.title}>{c.title}</h1>
-          <p className={styles.subtitle}>{c.subtitle}</p>
+          <h1 className={styles.title}>{displayContent.title}</h1>
+          <p className={styles.subtitle}>{displayContent.subtitle}</p>
           <div className={styles.ctas}>
-            <a href={`/${lang}/projects`} className="btn-primary">{c.cta}</a>
-            <a href={`/${lang}/contact`} className="btn-outline">{c.ctaSub}</a>
+            <a href={`/${lang}/projects`} className="btn-primary" onClick={handleCtaClick}>{displayContent.cta}</a>
+            <a href={`/${lang}/contact`} className="btn-outline">{displayContent.ctaSub}</a>
           </div>
         </div>
       </div>
